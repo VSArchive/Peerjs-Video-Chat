@@ -132,3 +132,7 @@ const setPlayVideo = () => {
   `
     document.querySelector('.main__video_button').innerHTML = html;
 }
+
+const leave = () => {
+    location.href = '/exit'
+}
