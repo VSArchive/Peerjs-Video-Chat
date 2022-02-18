@@ -1,11 +1,12 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
-const myPeer = new Peer(undefined, {
-    path: '/peerjs',
+const myPeer = new Peer("", {
+    path: '/peerJs',
     host: '/',
-    port: '443'
+    port: '4001',
+    secure: false
 })
-let myVideoStream
+let myVideoStream = ""
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
@@ -25,15 +26,6 @@ navigator.mediaDevices.getUserMedia({
 
     socket.on('user-connected', userId => {
         connectToNewUser(userId, stream)
-    })
-    // input value
-    let text = $("input")
-    // when press enter send message
-    $('html').keydown(function (e) {
-        if (e.which == 13 && text.val().length !== 0) {
-            socket.emit('message', text.val())
-            text.val('')
-        }
     })
 
     socket.on("createMessage", message => {
@@ -140,5 +132,5 @@ const setPlayVideo = () => {
 }
 
 const leave = () => {
-    location.href = 'https://cohelp-app.herokuapp.com/'
+    location.href = 'https://vineelsai.com'
 }
