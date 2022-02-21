@@ -134,5 +134,5 @@ const setPlayVideo = () => {
 }
 
 const leave = () => {
-    location.href = 'https://vineelsai.com'
+    location.href = '/'
 }

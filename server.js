@@ -13,6 +13,10 @@ app.use(express.static('public'))
 app.use('/peerJs', peerServer)
 
 app.get('/', (req, res) => {
+    res.render('index')
+})
+
+app.get('/new', (req, res) => {
     res.redirect(`/${uuidV4()}`)
 })
 

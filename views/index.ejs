@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/img/icon.png" type="images/png">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Video Chat</title>
+</head>
+
+<body class="container">
+    <h1 class="heading">Start Anonymous Call</h1>
+    <form action="new">
+        <button type="submit" class="btn">Start Call</button>
+    </form> 
+
+    <p class="or">or</p>
+
+    <input type="text" id="call_id" placeholder="Room ID" class="text" required>
+    <button type="submit" class="btn" onclick="joinCall()">Join Call</button>
+
+    <script>
+        function joinCall() {
+            var call_id = document.getElementById('call_id').value
+            if (call_id.trim() != '') {
+                window.location.href = `/${call_id}`
+            } else {
+                alert('Please enter a valid room id')
+            }
+        }
+    </script>
+</body>
+
+</html>
