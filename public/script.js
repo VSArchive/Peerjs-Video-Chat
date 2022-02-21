@@ -1,10 +1,12 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
+console.log(window.location.protocol)
+const isSecure = (window.location.protocol === 'https:')
 const myPeer = new Peer("", {
     path: '/peerJs',
     host: '/',
-    port: '4001',
-    secure: false
+    port: isSecure ? '443' : '4000',
+    secure: isSecure
 })
 let myVideoStream = ""
 const myVideo = document.createElement('video')
